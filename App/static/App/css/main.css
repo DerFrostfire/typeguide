@@ -1,0 +1,83 @@
+.map-container{
+overflow:hidden;
+padding-bottom:56.25%;
+position:relative;
+height:0;
+}
+
+.hidden{
+  display: none;
+}
+
+.map-container iframe{
+left:0;
+top:0;
+height:100%;
+width:100%;
+position:absolute;
+}
+
+.editor{
+  width: 100%;
+  height: 400px;
+}
+
+.list-group.list-group-flush.border-bottom-0 i{
+  width: 20px !important;
+}
+
+#fin_income_filter, #fin_income_paginate{
+  justify-content: end;
+  display: flex;
+}
+
+#fin_income_length > label > select{
+  width: auto;
+}
+
+.right-0{
+  right: 0;
+}
+
+html, body{
+  width: -webkit-fill-available !important;
+  height: -webkit-fill-available !important;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+.tm-layout {
+  --main-menu-height: 0;
+  flex: 1;
+  position: relative;
+}
+
+.tm-layout__wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f0f0f0;
+}
+
+.tm-page {
+  padding-bottom: 60px;
+}
+
+.h-fill{
+  height: -webkit-fill-available !important;
+}
+
+.w-fill{
+  width: -webkit-fill-available !important;
+}
+
+.navbar-nav > .nav-item{
+  margin-right: 1rem !important;
+}
+
+
+.list-group-item.active{
+  background: #33B5E5 !important;
+  border: none;
+}

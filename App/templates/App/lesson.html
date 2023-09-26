@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Урок</title>
+  {% load static %}
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'App/css/bootstrap.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'App/css/mdb.css' %}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="{% static '/App/css/main.css' %}">
+  
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+</head>
+
+<body class="grey lighten-3">
+    <!--Navbar -->
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark info-color">
+        <a class="navbar-brand" href="#">{{lesson.title}}</a>
+
+    </nav>
+    <!--/.Navbar -->
+
+  <main>
+        <div class="hidden" id="source">{{lesson.content_html}}</div>
+      <div class="container card">
+          <div class="row m-4" id="main">
+            
+          </div>      
+          <div class="row mb-5">
+            {% if lesson.id != 1 %}
+              <a class="btn btn-primary m-auto" href="/typescript/modules/{{ lesson.id|add:-1 }}">Предыдущий</a>
+            {% endif %} 
+            <a class="btn btn-primary m-auto" href="/">На главную</a>
+            {% if lesson.id != 5 %}
+              <a class="btn btn-primary m-auto" href="/typescript/modules/{{ lesson.id|add:1 }}">Следующий</a>
+            {% endif %}
+            
+      </div>
+  </main>
+  
+
+  <script src="{% static 'App/js/jquery.js' %}" type="text/javascript"></script>
+  <script src="{% static 'App/js/popper.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'App/js/bootstrap.js' %}" type="text/javascript"></script>
+  <script src="{% static 'App/js/mdb.js' %}" type="text/javascript"></script>
+  <script src="{% static 'App/js/datatables.min.js' %}"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
+  <script src="{% static 'App/js/AjaxCSRFgen.js' %}" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
+
+  <script src="{% static 'App/js/listners.js' %}" type="text/javascript"></script>
+  <script type="text/javascript">
+    var el = $("div#main");
+    el.html($("#source").text());
+    try{
+      var editor_ts = ace.edit("editor_ts");
+      editor_ts.session.setMode("ace/mode/typescript");
+
+      var editor_js= ace.edit("editor_js");
+      editor_js.session.setMode("ace/mode/javascript");
+    }catch (e){
+
+    }
+  </script>
+
+  {% block scripts %}
+  {% endblock %}
+</body>
+</html>
